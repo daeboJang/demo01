@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import me.kwanghee.board.model.Board;
-import me.kwanghee.persistence.JpaBoardRepository;
+import me.kwanghee.board.persistence.JpaBoardRepository;
 
 @Service
 public class BoardService {

@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import me.kwanghee.board.model.Board;
-import me.kwanghee.persistence.JpaBoardRepository;
+import me.kwanghee.board.persistence.JpaBoardRepository;
 
 @SpringBootApplication
 public class Demo01Application {
