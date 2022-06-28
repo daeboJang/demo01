@@ -1,7 +1,7 @@
 package me.kwanghee.board.service;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,37 +20,40 @@ public class BoardService {
 		this.boardRepository = boardRepository;
 	}
 	
-	// °Ô½Ã±Û µî·Ï
+	// ê²Œì‹œê¸€ ë“±ë¡
 	public Board register() {
 		return null;
 	}
 	
-	// °Ô½Ã±Û ¸®½ºÆ® ºÒ·¯¿À±â
+	// ê²Œì‹œê¸€ ë¦¬ìŠ¤íŠ¸ ë¶ˆëŸ¬ì˜¤ê¸°
 	public List<Board> getList() {
 		
 		List<Board> result = boardRepository.findAll();
 		return result;
 	}
 	
-	// °Ô½Ã±Û 1°³ ¾ò±â 
+	// ê²Œì‹œê¸€ 1ê°œ ì–»ê¸° 
 	public Board read(Long id) {
-		Optional<Board> result;
-		result = this.boardRepository.findById(id);
 		
-		return result.get();
+		// Optional ì„ ì‚¬ìš©í•˜ì—¬ null ì´ë©´ ì˜ˆì™¸ ë°œìƒ
+		// ìˆìœ¼ë©´ ì—”í‹°í‹° ë°˜í™˜
+		Board result = this.boardRepository.findById(id)
+				.orElseThrow(() -> new NoSuchElementException("ì¡´ì¬í•˜ì§€ ì•ŠëŠ” ê²Œì‹œë¬¼ ì…ë‹ˆë‹¤."));
+		
+		return result;
 	}
 	
-	// °Ô½Ã±Û °Ë»ö ¸®½ºÆ®
+	// ê²Œì‹œê¸€ ê²€ìƒ‰ ë¦¬ìŠ¤íŠ¸
 	public List<Board> serach() {
 		return null;
 	}
 	
-	// °Ô½Ã±Û ¼öÁ¤
+	// ê²Œì‹œê¸€ ìˆ˜ì •
 	public void update(Long id) {
 		
 	}
 	
-	// °Ô½Ã±Û »èÁ¦
+	// ê²Œì‹œê¸€ ì‚­ì œ
 	public void delete(Long id) {
 		
 	}

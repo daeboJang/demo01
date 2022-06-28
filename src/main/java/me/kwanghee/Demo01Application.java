@@ -21,19 +21,19 @@ public class Demo01Application {
 			
 			@Override
 			public void run(String... args) throws Exception {
-				// Á¦¸ñ, ³»¿ë, ÀÛ¼ºÀÚ
-//				repo.save(new Board("Á¦¸ñ1", "°Ô½Ã±Û ³»¿ëÀÓ...1", "È«±æµ¿", 0));
-//				repo.save(new Board("Á¦¸ñ2", "°Ô½Ã±Û ³»¿ëÀÓ...2", "È«±æµ¿", 0));
-//				repo.save(new Board("Á¦¸ñ3", "°Ô½Ã±Û ³»¿ëÀÓ...3", "È«±æ¼ø", 0));
-//				repo.save(new Board("Á¦¸ñ4", "°Ô½Ã±Û ³»¿ëÀÓ...4", "È«±æµ¿", 0));
-//				repo.save(new Board("Á¦¸ñ5", "°Ô½Ã±Û ³»¿ëÀÓ...5", "±è±æ¸¸", 0));
+				// ì œëª©, ë‚´ìš©, ì‘ì„±ì
+//				repo.save(new Board("ì œëª©1", "ê²Œì‹œê¸€ ë‚´ìš©ì„...1", "í™ê¸¸ë™", 0));
+//				repo.save(new Board("ì œëª©2", "ê²Œì‹œê¸€ ë‚´ìš©ì„...2", "í™ê¸¸ë™", 0));
+//				repo.save(new Board("ì œëª©3", "ê²Œì‹œê¸€ ë‚´ìš©ì„...3", "í™ê¸¸ìˆœ", 0));
+//				repo.save(new Board("ì œëª©4", "ê²Œì‹œê¸€ ë‚´ìš©ì„...4", "í™ê¸¸ë™", 0));
+//				repo.save(new Board("ì œëª©5", "ê²Œì‹œê¸€ ë‚´ìš©ì„...5", "ê¹€ê¸¸ë§Œ", 0));
 				
-				// builder »ç¿ëÇØ¼­ ÃÊ±â µ¥ÀÌÅÍ »ğÀÔ
+				// builder ì‚¬ìš©í•´ì„œ ì´ˆê¸° ë°ì´í„° ì‚½ì…
 				for (int i=1; i <= 100; i++)
 				{
-				repo.save(Board.builder().title("Á¦¸ñ" + i)
-						.content("°Ô½Ã±Û ³»¿ëÀÓ..." + i)
-						.writer("È«±æµ¿")
+				repo.save(Board.builder().title("ì œëª©" + i)
+						.content("ê²Œì‹œê¸€ ë‚´ìš©ì„..." + i)
+						.writer("í™ê¸¸ë™")
 						.build());
 				} // for()
 			}

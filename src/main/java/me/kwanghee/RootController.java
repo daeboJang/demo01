@@ -10,6 +10,6 @@ public class RootController {
 	@GetMapping("/")
 	@ResponseBody
 	public String index() {
-		return "Sprng Boot + JPA ¸¦ ÀÌ¿ëÇÑ °Ô½ÃÆÇ ¸¸µé±â demo";
+		return "Sprng Boot + JPA ë¥¼ ì´ìš©í•œ ê²Œì‹œíŒ ë§Œë“¤ê¸° demo";
 	}
 }

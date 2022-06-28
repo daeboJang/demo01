@@ -41,7 +41,7 @@ public class Board {
 	
 	@PrePersist
 	public void setupDateTime() {
-		// final ÇÊµå´Â »ı¼ºÀÚ ¿¡¼­¸¸ ÃÊ±âÈ­ ÇÒ ¼ö ÀÖÀ½
+		// final í•„ë“œëŠ” ìƒì„±ì ì—ì„œë§Œ ì´ˆê¸°í™” í•  ìˆ˜ ìˆìŒ
 		//this.readCount = 0;
 		this.createdAt = LocalDateTime.now();
 		this.updatedAt = this.createdAt;
