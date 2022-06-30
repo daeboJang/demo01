@@ -16,22 +16,27 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "board")
+@Setter
 @Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 @AllArgsConstructor
-@Builder
 public class Board {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	private final String title;
-	private final String content;
-	private final String writer;
-	@Builder.Default private Integer readCount = 0;
+	@Id @GeneratedValue(strategy = GenerationType.AUTO)
+	@Setter(AccessLevel.NONE)
+	private Long id;					// 못 바꿈
+	
+	private String title;
+	
+	private String content;
+	
+	private String writer;		// 못 바꿈
+	
+	private Integer readCount = 0;
 	
 	@DateTimeFormat(pattern = "YYYY-mm-dd HH:ii:ss")
 	private LocalDateTime createdAt;
@@ -39,12 +44,19 @@ public class Board {
 	@DateTimeFormat(pattern = "YYYY-mm-dd HH:ii:ss")
 	private LocalDateTime updatedAt;
 	
+	@Builder
+	public Board(String title, String content, String writer) {
+		this.title = title;
+		this.content = content;
+		this.writer = writer;
+		
+		this.createdAt = LocalDateTime.now();
+	}
+	
 	@PrePersist
 	public void setupDateTime() {
-		// final 필드는 생성자 에서만 초기화 할 수 있음
-		//this.readCount = 0;
-		this.createdAt = LocalDateTime.now();
-		this.updatedAt = this.createdAt;
+		// 실제 저장 전 갱신 시간만 자동 업데이트
+		this.updatedAt = LocalDateTime.now();
 	}
 }
 
