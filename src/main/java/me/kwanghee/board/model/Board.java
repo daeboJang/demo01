@@ -2,6 +2,7 @@ package me.kwanghee.board.model;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -34,6 +35,7 @@ public class Board {
 	
 	private String content;
 	
+	@Column(nullable = false)
 	private String writer;		// 못 바꿈
 	
 	private Integer readCount = 0;

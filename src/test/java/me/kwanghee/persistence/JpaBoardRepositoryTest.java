@@ -1,6 +1,9 @@
 package me.kwanghee.persistence;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.fail;
+
+import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -24,15 +27,15 @@ class JpaBoardRepositoryTest {
 	@Test
 	void 초기화테스트() {
 		int numRows = (int) repository.count();
-		assertThat(numRows).isEqualTo(100);
+		assertThat(numRows).isEqualTo(50);
 	}
 	
 	@Test
 	@DisplayName("findbyId 테스트")
 	void findByIdTest() {
-		Board article = repository.findById((long)99).orElseGet(null);
-		assertThat(article.getWriter()).isEqualTo("홍길동");
-		assertThat(article.getTitle()).isEqualTo("제목99");
+		Board article = repository.findById((long)50).orElseGet(null);
+		assertThat(article.getTitle()).isEqualTo("제목50");
+		assertThat(article.getReadCount()).isEqualTo(0);
 	}
 	
 	@Test
@@ -42,9 +45,14 @@ class JpaBoardRepositoryTest {
 				.content("신규 테스트 본문")
 				.writer("장광희")
 				.build());
-		assertThat(article.getId()).isEqualTo(101);			// 신규 id
+		assertThat(article.getId()).isEqualTo(51);			// 신규 id
 		assertThat(article.getReadCount()).isEqualTo(0);	// 조회수 
-		
+	}
+	
+	@Test
+	void 게시글_없으면_예외발생() {
+		Optional<Board> article = repository.findById(999L);
+		article.ifPresent(m -> fail());
 	}
 
 }

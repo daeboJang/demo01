@@ -21,7 +21,9 @@ public class BoardService {
 	}
 	
 	// 게시글 등록
-	public Board register() {
+	public Board register(Board board) {
+		
+		
 		return null;
 	}
 	

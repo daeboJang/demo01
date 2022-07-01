@@ -1,5 +1,6 @@
 package me.kwanghee;
 
+import java.time.LocalDateTime;
 import java.util.Random;
 
 import org.springframework.boot.CommandLineRunner;
@@ -30,10 +31,15 @@ public class Demo01Application {
 				// builder 사용해서 초기 데이터 삽입
 				for (int i=1; i <= 50; i++)
 				{
-				repo.save(Board.builder().title("제목" + i)
-						.content("게시글 내용임..." + i)
-						.writer(people[rand.nextInt(5)])
-						.build());
+					Board article = new Board(null,
+							"제목" + i, 
+							"게시글 내용임..." + i, 
+							people[rand.nextInt(5)],
+							0,
+							LocalDateTime.now()
+							, null
+							);
+					repo.save(article);
 				} // for()
 			}
 		};
